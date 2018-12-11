@@ -20,11 +20,8 @@ public class Main
         cart.printCartItems();
         System.out.println(cart.getCartTotalValue());
 
-
-
-
-
-
+        Checkout checkout = new Checkout(cart);
+        System.out.println(checkout.applyPercentageDiscountVoucher(30));
 
     }
 }
