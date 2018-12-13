@@ -15,7 +15,12 @@ public class Items {
 
 
     //Getters
-    public String getItem() {
+
+    public Item getItem(){
+        return item;
+    }
+
+    public String getItemName() {
         return item.getItemName();
     }
 

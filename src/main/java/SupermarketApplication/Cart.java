@@ -27,5 +27,7 @@ public class Cart {
         return cartTotalValue;
     }
 
-
+    public Set<Items> getCart() {
+        return cart;
+    }
 }

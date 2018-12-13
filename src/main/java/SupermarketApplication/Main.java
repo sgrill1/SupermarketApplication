@@ -16,6 +16,7 @@ public class Main
         cart.addItemsToCart(bananas);
         cart.printCartItems();
         System.out.println(cart.getCartTotalValue());
+        System.out.println(cart.checkCartContainsItems(bananas));
 
 
 
