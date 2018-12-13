@@ -26,4 +26,8 @@ public class Items {
     public double getMultipleItemsCost() {
         return multipleItemsCost;
     }
+
+    public void setMultipleItemsCost(double multipleItemsCost) {
+        this.multipleItemsCost = multipleItemsCost;
+    }
 }
