@@ -27,6 +27,7 @@ public class Checkout {
                 break;
 
             case "choose three and get the cheapest free":
+                // TO IMPLEMENT THIS WILL REQUIRE ADDING ADDITIONAL PROPERTIES TO THE ITEM CLASS
                 break;
 
             default:
@@ -71,7 +72,6 @@ public class Checkout {
         }
         return afterDiscountTotal;
     }
-
 
     //Getters
 

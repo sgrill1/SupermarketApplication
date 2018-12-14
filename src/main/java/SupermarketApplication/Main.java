@@ -13,7 +13,7 @@ public class Main {
 
 
                 cart.addNewItemsToCart(bananas);
-                cart.printCartItems();
+
 
                 Checkout checkout = new Checkout(cart, cart.getCartTotalValue());
 

@@ -8,7 +8,9 @@ public class Items {
     private double multipleItemsCost;
 
     public Items(Integer selectQuantity, Item item) {
-        this.quantity = selectQuantity;
+        if (selectQuantity > 0){
+            this.quantity = selectQuantity;}
+        else this.quantity = 1;
         this.item = item;
         this.multipleItemsCost = item.getUnitCost() * quantity;
     }
@@ -38,6 +40,7 @@ public class Items {
         if (increaseBy >= 0){
             quantity = getQuantity() + increaseBy;
         }
+        else decreaseQuantity(-1*increaseBy);
         return quantity;
     }
 
@@ -45,6 +48,10 @@ public class Items {
         if (decreaseBy > 0 && decreaseBy < quantity){
             quantity = quantity - decreaseBy;
         }
+        else if(decreaseBy > 0 && decreaseBy > quantity){
+            quantity = 0;
+        }
+        else increaseQuantity(-1*decreaseBy);
         return quantity;
     }
 
