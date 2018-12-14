@@ -32,7 +32,4 @@ public class Items {
         return multipleItemsCost;
     }
 
-    public void setMultipleItemsCost(double multipleItemsCost) {
-        this.multipleItemsCost = multipleItemsCost;
-    }
 }
