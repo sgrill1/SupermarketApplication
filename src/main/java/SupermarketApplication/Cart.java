@@ -14,7 +14,7 @@ public class Cart {
 
     public void printCartItems(){
         for (Items items: cart){
-            System.out.println(items.getQuantity().toString() +" "+ items.getItem() + "'s");
+            System.out.println(items.getQuantity().toString() +" "+ items.getItemName() + "'s");
         }
     }
 

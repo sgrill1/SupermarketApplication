@@ -16,24 +16,34 @@ public class Checkout {
         this.beforeDiscountTotal = cart.getCartTotalValue();
     }
 
-    public double applyDiscount(String discountType){
+    public void applyDiscount(String discountType){
         afterDiscountTotal = beforeDiscountTotal;
 
-        if (discountType.equals("bogof")){
-            applyBuyOneGetOneFree();
-        }
-        else if (discountType.equals("three for two")){
-            applyBuyTwoGetAThirdFree();
-        }
-        else if (discountType.equals("choose three and get the cheapest free")){
-        }
-        else;
+        switch (discountType) {
+            case "bogof":
+                applyBuyOneGetOneFree();
+                break;
 
+            case "three for two":
+                applyBuyTwoGetAThirdFree();
+                break;
+
+            case "choose three and get the cheapest free":
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public double presentPercentageDiscountVoucher(int percentageOff){
+        afterDiscountTotal = cart.getCartTotalValue() - calculateAmountOff(percentageOff);
         return afterDiscountTotal;
     }
 
+    //Discounts
 
-    public double applyBuyOneGetOneFree(){
+    private double applyBuyOneGetOneFree(){
         for (Items items: cart.getCart()) {
             if (items.getQuantity() % 2 == 0 && items.getItem().getDiscountType().equals("bogof")){
                 afterDiscountTotal = beforeDiscountTotal - (items.getMultipleItemsCost() / 2);
@@ -43,12 +53,11 @@ public class Checkout {
                         beforeDiscountTotal - ((items.getQuantity() - 1) * (items.getItem().getUnitCost()/2))
                                 + items.getItem().getUnitCost();
             }
-
         }
         return formatter.roundToTwoDecimalPlaces(afterDiscountTotal);
     }
 
-    public double applyBuyTwoGetAThirdFree(){
+    private double applyBuyTwoGetAThirdFree(){
         for (Items items: cart.getCart()) {
             if (items.getQuantity() % 3 == 0 && items.getItem().getDiscountType().equals("three for two")){
                 afterDiscountTotal = beforeDiscountTotal - (items.getMultipleItemsCost() / 3);
@@ -61,16 +70,10 @@ public class Checkout {
                 afterDiscountTotal = beforeDiscountTotal
                         - ((items.getQuantity() - 1) * (items.getItem().getUnitCost() * (2/3))) + items.getItem().getUnitCost();
             }
-
         }
         return afterDiscountTotal;
     }
 
-
-    public double applyPercentageDiscountVoucher(int percentageOff){
-        afterDiscountTotal = cart.getCartTotalValue() - calculateAmountOff(percentageOff);
-        return afterDiscountTotal;
-    }
 
     //Getters
 
