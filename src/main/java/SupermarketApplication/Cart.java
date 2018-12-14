@@ -8,9 +8,18 @@ public class Cart {
     private Set<Items> cart = new HashSet<>();
     private double cartTotalValue;
 
-    public void addItemsToCart(Items items){
+    public Cart(Items items) {
         cart.add(items);
     }
+
+
+    public void addNewItemsToCart(Items items){
+        if (cart.contains(items)){
+            System.out.println("You already have" + items.getQuantity() + items.getItemName()+ "'s");
+        }
+        else cart.add(items);
+    }
+
 
     public void printCartItems(){
         for (Items items: cart){

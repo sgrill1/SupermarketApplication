@@ -32,4 +32,20 @@ public class Items {
         return multipleItemsCost;
     }
 
+    // Setters
+
+    public int increaseQuantity(int increaseBy){
+        if (increaseBy >= 0){
+            quantity = getQuantity() + increaseBy;
+        }
+        return quantity;
+    }
+
+    public int decreaseQuantity(int decreaseBy){
+        if (decreaseBy > 0 && decreaseBy < quantity){
+            quantity = quantity - decreaseBy;
+        }
+        return quantity;
+    }
+
 }

@@ -20,12 +20,10 @@ public class Checkout {
         afterDiscountTotal = beforeDiscountTotal;
 
         switch (discountType) {
-            case "bogof":
-                applyBuyOneGetOneFree();
+            case "bogof": applyBuyOneGetOneFree();
                 break;
 
-            case "three for two":
-                applyBuyTwoGetAThirdFree();
+            case "three for two": applyBuyTwoGetAThirdFree();
                 break;
 
             case "choose three and get the cheapest free":
@@ -64,11 +62,11 @@ public class Checkout {
             }
             else if(items.getQuantity() %3 > 0.3 && items.getQuantity() %3 < 0.6 && items.getItem().getDiscountType().equals("three for two")){
                 afterDiscountTotal = beforeDiscountTotal
-                        - ((items.getQuantity() - 2) * (items.getItem().getUnitCost() * (2/3))) + 2*(items.getItem().getUnitCost());
+                        - ((items.getQuantity() - 2) * (items.getItem().getUnitCost() * (0.67))) + 2*(items.getItem().getUnitCost());
             }
             else if(items.getQuantity() %3 > 0.6){
                 afterDiscountTotal = beforeDiscountTotal
-                        - ((items.getQuantity() - 1) * (items.getItem().getUnitCost() * (2/3))) + items.getItem().getUnitCost();
+                        - ((items.getQuantity() - 1) * (items.getItem().getUnitCost() * (0.67))) + items.getItem().getUnitCost();
             }
         }
         return afterDiscountTotal;
