@@ -12,7 +12,7 @@ public class Item{
         if (unitCost <= 0.0){
             throw new InvalidPriceException("Unit cost must be at least 1p");
         }
-        this.unitCost = formatter.roundToTwoDecimalPlaces(unitCost);
+        else this.unitCost = formatter.roundToTwoDecimalPlaces(unitCost);
         this.discountType = discountType;
     }
 
