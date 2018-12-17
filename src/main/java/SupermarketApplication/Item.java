@@ -7,8 +7,11 @@ public class Item{
     private Formatter formatter = new Formatter();
 
 
-    public Item(String itemName, double unitCost, String discountType) {
+    public Item(String itemName, double unitCost, String discountType) throws InvalidPriceException {
         this.itemName = itemName;
+        if (unitCost <= 0.0){
+            throw new InvalidPriceException("Unit cost must be at least 1p");
+        }
         this.unitCost = formatter.roundToTwoDecimalPlaces(unitCost);
         this.discountType = discountType;
     }
