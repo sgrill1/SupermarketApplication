@@ -6,13 +6,14 @@ public class Items {
     private Integer quantity;
     private Item item;
     private double multipleItemsCost;
+    Formatter formatter = new Formatter();
 
     public Items(Integer selectQuantity, Item item) {
         if (selectQuantity > 0){
             this.quantity = selectQuantity;}
         else this.quantity = 1;
         this.item = item;
-        this.multipleItemsCost = item.getUnitCost() * quantity;
+        this.multipleItemsCost = formatter.roundToTwoDecimalPlaces(item.getUnitCost() * quantity);
     }
 
 
