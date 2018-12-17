@@ -41,7 +41,6 @@ public class Checkout {
     }
 
     //Discounts
-
     private double applyBuyOneGetOneFree(){
         for (Items items: cart.getCart()) {
             if (items.getQuantity() % 2 == 0 && items.getItem().getDiscountType().equals("bogof")){
